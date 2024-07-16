@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: forohub
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/foro-hub
+    username: root
+    password: ${DB_PASSWORD}
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+server:
+  error:
+    include-stacktrace: never
+jwt:
+  secret: 456456
+  expiration: 24 #Tiempo en horas hasta que expire el token

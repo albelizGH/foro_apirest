@@ -1,0 +1,6 @@
+CREATE TABLE cursos (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(255) NOT NULL,
+    categoria ENUM('FRONTEND', 'BACKEND', 'DEVOPS') NOT NULL,
+    PRIMARY KEY (id)
+);
