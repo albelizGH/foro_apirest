@@ -4,9 +4,11 @@
 
 API Rest para el desafío final Foro Hub de Alura.
 
+
 ## Descripción 📃
 
 Esta API proporciona servicios para gestionar usuarios, cursos, respuestas y tópicos en la plataforma Foro Hub. Permite registrar usuarios, crear y gestionar cursos, responder a tópicos y más.
+
 
 ## Funcionalidades Principales 📑📎
 
@@ -26,6 +28,7 @@ Esta API proporciona servicios para gestionar usuarios, cursos, respuestas y tó
   - Crear, actualizar, obtener detalles y eliminar tópicos.
   - Listar tópicos paginados.
 
+
 ## Tecnologías Utilizadas 📟
 
 - Java 17
@@ -42,7 +45,8 @@ Esta API proporciona servicios para gestionar usuarios, cursos, respuestas y tó
 - Auth0 Java JWT para manejo de tokens JWT
 - Springdoc OpenAPI para documentación de API con Swagger UI
 
-## Requisitos Previos
+
+## Requisitos Previos 🔙
 
 Antes de empezar, asegúrate de tener instalados los siguientes requisitos:
 
@@ -50,7 +54,8 @@ Antes de empezar, asegúrate de tener instalados los siguientes requisitos:
 - Maven
 - MySQL (u otro sistema de gestión de bases de datos compatible)
 
-## Configuración y Uso
+
+## Configuración y Uso ⚙️
 
 1. **Clonar el repositorio:**
 
@@ -74,7 +79,8 @@ Antes de empezar, asegúrate de tener instalados los siguientes requisitos:
     ```bash
     https://localhost:8080/swagger-ui.html
     ```
-### Autor
+    
+### Autor 🤘🏻
 Alejo Beliz
 
 - LinkedIn: [Alejo Beliz](https://linkedin.com/in/alejo-beliz)
