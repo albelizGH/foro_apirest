@@ -5,6 +5,7 @@ import com.alejobeliz.proyectos.forohub.domain.usuario.DatosAutenticacionUsuario
 import com.alejobeliz.proyectos.forohub.domain.usuario.Usuario;
 import com.alejobeliz.proyectos.forohub.infra.security.DatosJWTToken;
 import com.alejobeliz.proyectos.forohub.infra.security.TokenService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/login")
+@Tag(name = "Autentificación")
 public class AutenticacionController {
 
     private AuthenticationManager authenticationManager;

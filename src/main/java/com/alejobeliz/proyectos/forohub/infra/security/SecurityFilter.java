@@ -27,23 +27,14 @@ public class SecurityFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        //1-Obtengo el token del header
         var tokenJWT = recuperarToken(request);
-        /*if(token=="" || token == null){
-            throw new RuntimeException("El token enviado no es valido");//Hacemos esto porque si la peticion no viene con token romperia el codigo
-        }*/
-        //invierto el orden de como estaba antes para que no me genere problemas porque en el login siempre el token esta vacio o nulo
         if (tokenJWT != null) {
-            //2-Tengo que validar para ver si ese token que me envian es correcto o son solo letras
-            //Solo voy a activar el filtro si viene algun token en el header
             var subject = tokenService.getSubject(tokenJWT);
             var usuario = usuarioRepository.findByCorreoElectronico(subject);
-            //El token ya estaria valido si subject != null
-            //entonces fuerzo un inicio de sesion en mi sistema
             var authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());//Forzamos un inicio de sesion
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
-        filterChain.doFilter(request, response);//Le mandamos el request y el response al siguiente filtro.
+        filterChain.doFilter(request, response);
     }
 
     private String recuperarToken(HttpServletRequest request) {

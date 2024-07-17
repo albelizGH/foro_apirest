@@ -13,9 +13,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
 @Configuration
 @EnableWebSecurity
-//Con esa anotacion le estoy diciendo que el metodo de abajo sobrescribe el comportamiento de autenticacion que tiene por defecto
 public class SecurityConfiguration {
 
     private SecurityFilter securityFilter;
@@ -33,6 +33,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> auth
 
                         .requestMatchers(HttpMethod.POST, "/login").permitAll() // Permitir solo POST en /login
+                        .requestMatchers(HttpMethod.POST, "/usuarios").permitAll()
                         .requestMatchers("/swagger-ui.html","v3/api-docs/**","/swagger-ui/**").permitAll()//Para que swagger me pueda mostrar la documentacion sin problema
                         .anyRequest().authenticated()
                 )

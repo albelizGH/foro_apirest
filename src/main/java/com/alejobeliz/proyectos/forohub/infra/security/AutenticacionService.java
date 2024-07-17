@@ -17,8 +17,7 @@ public class AutenticacionService implements UserDetailsService {//Aca empieza l
         this.usuarioRepository = usuarioRepository;
     }
 
-    /*Este metodo me va a pedir que le pase el usuario para que el lo valide
-     * Para eso necesito el usuario que lo voy a obtener pidiendoselo a mi base de datos creando un metodo en el repository*/
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return usuarioRepository.findByCorreoElectronico(username);

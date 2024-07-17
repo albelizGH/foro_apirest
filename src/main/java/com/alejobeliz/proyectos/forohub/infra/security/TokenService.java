@@ -24,7 +24,7 @@ public class TokenService {
 
     public String generarToken(Usuario usuario) {
         try {
-            Algorithm algorithm = Algorithm.HMAC256(apiSecret);//Es muy mala practica tener ese secret en el codigo. Lo dejamos asi por fines didacticos
+            Algorithm algorithm = Algorithm.HMAC256(apiSecret);
             return JWT.create()
                     .withIssuer("Foro.Hub")
                     .withSubject(usuario.getCorreoElectronico())
