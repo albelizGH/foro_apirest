@@ -78,6 +78,10 @@ Antes de empezar, asegúrate de tener instalados los siguientes requisitos:
     ```bash
     https://localhost:8080/swagger-ui.html
     ```
+
+    Como alternativa te dejo el archivo Insomia_2024-07-17.json para importar en Insomia y probar        los endpoints
+
+    
     
 ### Autor 🤘🏻
 Alejo Beliz
