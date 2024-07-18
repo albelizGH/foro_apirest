@@ -61,13 +61,12 @@ Antes de empezar, asegúrate de tener instalados los siguientes requisitos:
 
    ```bash
    git clone https://github.com/tu_usuario/foro-hub-api.git
-   cd foro-hub-api
    ```
 
    
 2. Configuración de la Base de Datos:
 
-    - Crea una base de datos MySQL llamada foro_hub.
+    - Crea una base de datos MySQL llamada foro-hub.
     - Ajusta las configuraciones de base de datos en application.properties según sea necesario.
       
 2. Ejecuta la aplicacion en tu IDE
