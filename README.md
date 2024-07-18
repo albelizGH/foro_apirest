@@ -79,7 +79,9 @@ Antes de empezar, asegúrate de tener instalados los siguientes requisitos:
     https://localhost:8080/swagger-ui.html
     ```
 
-    Como alternativa te dejo el archivo Insomia_2024-07-17.json para importar en Insomia y probar        los endpoints
+    Como alternativa, te dejo el archivo Insomia_2024-07-17.json para que lo importes en Insomnia, Postman o algún otro programa similar y puedas probar los endpoints.
+
+
 
     
     
