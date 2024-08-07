@@ -13,18 +13,33 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
+/**
+ * Configuración de seguridad para la aplicación.
+ * Configura la autenticación, autorización y filtros de seguridad para las solicitudes HTTP.
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
 
     private SecurityFilter securityFilter;
 
+    /**
+     * Constructor de la clase {@link SecurityConfiguration}.
+     *
+     * @param securityFilter El filtro de seguridad que maneja la validación del token JWT.
+     */
     @Autowired
     public SecurityConfiguration(SecurityFilter securityFilter) {
         this.securityFilter = securityFilter;
     }
 
+    /**
+     * Configura el {@link SecurityFilterChain} para gestionar la seguridad HTTP.
+     *
+     * @param http La instancia de {@link HttpSecurity} para configurar la seguridad HTTP.
+     * @return La instancia configurada de {@link SecurityFilterChain}.
+     * @throws Exception Si ocurre un error durante la configuración.
+     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -42,12 +57,23 @@ public class SecurityConfiguration {
         return http.build();
     }
 
-
+    /**
+     * Crea un {@link AuthenticationManager} para manejar la autenticación.
+     *
+     * @param configuration La configuración de autenticación.
+     * @return La instancia de {@link AuthenticationManager}.
+     * @throws Exception Si ocurre un error durante la creación del {@link AuthenticationManager}.
+     */
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
         return configuration.getAuthenticationManager();
     }
 
+    /**
+     * Crea un {@link PasswordEncoder} para encriptar contraseñas.
+     *
+     * @return La instancia de {@link PasswordEncoder}.
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

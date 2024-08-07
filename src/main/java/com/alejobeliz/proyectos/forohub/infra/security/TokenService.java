@@ -12,7 +12,10 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
-
+/**
+ * Servicio para generar y verificar tokens JWT.
+ * Maneja la creación de tokens JWT y la validación de tokens existentes.
+ */
 @Service
 public class TokenService {
 
@@ -22,6 +25,13 @@ public class TokenService {
     @Value("${jwt.expiration}")
     private int expiracionEnHoras;
 
+    /**
+     * Genera un token JWT para el usuario especificado.
+     *
+     * @param usuario El usuario para quien se genera el token.
+     * @return El token JWT generado.
+     * @throws RuntimeException Si ocurre un error al crear el token.
+     */
     public String generarToken(Usuario usuario) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(apiSecret);
@@ -37,6 +47,13 @@ public class TokenService {
 
     }
 
+    /**
+     * Obtiene el sujeto del token JWT.
+     *
+     * @param tokenJWT El token JWT del cual se extrae el sujeto.
+     * @return El sujeto del token JWT.
+     * @throws RuntimeException Si el token es inválido o ha expirado.
+     */
     public String getSubject(String tokenJWT) {
         try {
             var algoritmo = Algorithm.HMAC256(apiSecret);
@@ -50,6 +67,11 @@ public class TokenService {
         }
     }
 
+    /**
+     * Genera la fecha de expiración del token JWT.
+     *
+     * @return La fecha de expiración del token JWT.
+     */
     private Instant generarFechaExpiracion() {
         return LocalDateTime.now().plusHours(expiracionEnHoras).toInstant(ZoneOffset.of("-03:00"));
     }
